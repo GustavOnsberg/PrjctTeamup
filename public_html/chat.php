@@ -266,7 +266,7 @@ include('php_includes/header.php');
             border:0;
             float: left;
             font-size: 1.3em;
-            overflow: scroll;
+            overflow-y: scroll;
           }
           div.chat  .textarea > div.textarea:focus, div.chat > .textarea > textarea:active{
             outline:none;
