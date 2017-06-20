@@ -24,7 +24,7 @@ include('php_includes/header.php');
             overflow:hidden; /*to remove the slidebar from the screen*/
           }
           div.wrapper{
-            width: 1282px;
+            max-width: 1282px;
             margin: auto;
           }
           div.menubar{
