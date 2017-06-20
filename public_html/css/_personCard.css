@@ -1,0 +1,31 @@
+.personCardDiv{
+	height: 120px;
+	width: 360px;
+	float: left;
+}
+.personCardImageDiv{
+	height: 120px;
+	width: 120px;
+	float: left;
+}
+.personCardImageLink{
+	height: 120px;
+	width: 120px;
+}
+.personCardImageImg{
+	height: 120px;
+	width: 120px;
+}
+
+.personCardTextDiv{
+	height: 120px;
+	width: 240px;
+	float: left;
+}
+.personCardText{
+	font-size: 20px;
+	color: black;
+	text-decoration: none;
+	line-height: 14px;
+	margin-left: 10px;
+}
