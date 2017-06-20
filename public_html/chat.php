@@ -235,6 +235,9 @@ include('php_includes/header.php');
             float: right;
             z-index:1;
           }
+          div.chat > .messages > .messagecontainer img{
+            width: 100%;
+          }
           div.chat  .textarea{
             height: 15%;
             background-color: #fff;
