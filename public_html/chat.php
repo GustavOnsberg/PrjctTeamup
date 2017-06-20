@@ -302,127 +302,129 @@ include('php_includes/header.php');
         <?php
         include("_header_white.php");
         ?>
-        <div class="menubar" id="friendslist">
-        </div>
-        <div class="chat">
-          <!--<div class="top group">
-            <div class="chaticon"><img src="0.png"></div>
-            <div class="groupnameandimage">
-              <div class="groupname">Project Team-Up</div>
-              <div class="groupimage"><img src="0.png"><img src="0.png"></div>
-            </div>
-          </div>-->
-          <div class="messages" id="messageboard" onscroll="checkToLoadMoreMessges()">
-            
+        <div class="wrapper">
+          <div class="menubar" id="friendslist">
           </div>
-            <div class="textarea" id="inputTextDiv">
-              <div class="textarea" id="inputText" contenteditable></div>
-              <a href="#">
-                <div class="send" id="sendbutton" onclick="send()"><p>Send</p></div>
-              </a>
-            </div>
-            <script>
-            var chatListUpdateTimeout;
-            var messageUpdateTimeout;
-
-            var otherId = 1;
-            var isGroupChat = 0;
-            function setOtherId(id, groupchat){
-              otherId = id;
-              isGroupChat = groupchat;
-              loadMessages(true);
-              clearTimeout(chatListUpdateTimeout);
-              clearTimeout(messageUpdateTimeout);
-              loadNewMessages();
-              loadChatList();
-            }
-
-              function send(){
-                var content = document.getElementById("inputText").innerHTML;
-                if (content.length != 0) {
-                  $.post("sendMessage.php", {id: otherId, isgroupchat: isGroupChat, content: content, contenttype: "text"}, function(data){
-                    $("#inputText").html("");
-                    $("#messageboard").html($("#messageboard").html() + data);
-                    document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight;
-                  });
-                }
-              }
-
-              var blockLoadMore = false;
-              window.onload = loadMessages(true);
-              function loadMessages(newload){
-                if (newload) {
-                  var sendData = "id=" + otherId + "&isgroupchat=" + isGroupChat + "&loadnew=" + "true";
-                  document.getElementById("messageboard").innerHTML = "";
-                }
-                else{
-                  var sendData = "id=" + otherId + "&isgroupchat=" + isGroupChat;
-                }
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    if (this.responseText != "") {
-                      var oldScrollHeight = document.getElementById("messageboard").scrollHeight;
-                      var oldScrollTop = document.getElementById("messageboard").scrollTop;
-
-                      document.getElementById("messageboard").innerHTML = this.responseText + document.getElementById("messageboard").innerHTML;
-                      
-                      if (newload) {
-                        document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight;
-                        
-
-                      }
-                      else{
-                        document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight - (oldScrollHeight - oldScrollTop);
-                      }
-                    }
-                  }
-                };
-                if (newload) {blockLoadMore = true;}
-                xmlhttp.open("GET", "loadMessages.php?" + sendData, true);
-                xmlhttp.send(sendData);
-              }
+          <div class="chat">
+            <!--<div class="top group">
+              <div class="chaticon"><img src="0.png"></div>
+              <div class="groupnameandimage">
+                <div class="groupname">Project Team-Up</div>
+                <div class="groupimage"><img src="0.png"><img src="0.png"></div>
+              </div>
+            </div>-->
+            <div class="messages" id="messageboard" onscroll="checkToLoadMoreMessges()">
               
-              function checkToLoadMoreMessges(){
-                if (document.getElementById("messageboard").scrollTop < 200 && document.getElementById("messageboard").scrollHeight > 100 && !blockLoadMore) {
-                  loadMessages(false);
-                }
-                if (blockLoadMore == true) {blockLoadMore=false;}
-              };
-              loadNewMessages();
-              function loadNewMessages(){
-                var sendData = "id=" + otherId + "&isgroupchat=" + isGroupChat;
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("messageboard").innerHTML = document.getElementById("messageboard").innerHTML + this.responseText;
-                    if (this.responseText != "") {
-                      document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight;
-                    }
-                    
-                  }
-                };
-                xmlhttp.open("GET", "loadNewMessages.php?" + sendData, true);
-                xmlhttp.send(sendData);
-                messageUpdateTimeout = setTimeout(loadNewMessages, 1000);
+            </div>
+              <div class="textarea" id="inputTextDiv">
+                <div class="textarea" id="inputText" contenteditable></div>
+                <a href="#">
+                  <div class="send" id="sendbutton" onclick="send()"><p>Send</p></div>
+                </a>
+              </div>
+              <script>
+              var chatListUpdateTimeout;
+              var messageUpdateTimeout;
+
+              var otherId = 1;
+              var isGroupChat = 0;
+              function setOtherId(id, groupchat){
+                otherId = id;
+                isGroupChat = groupchat;
+                loadMessages(true);
+                clearTimeout(chatListUpdateTimeout);
+                clearTimeout(messageUpdateTimeout);
+                loadNewMessages();
+                loadChatList();
               }
 
-              var chatListLoadAmount = 12;
-              window.load = loadChatList();
-              function loadChatList(){
-                var sendData = "limit=" + chatListLoadAmount;
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                  if (this.readyState == 4 && this.status == 200) {
-                    if (document.getElementById("friendslist").innerHTML != this.responseText) {}
-                    document.getElementById("friendslist").innerHTML = this.responseText;
+                function send(){
+                  var content = document.getElementById("inputText").innerHTML;
+                  if (content.length != 0) {
+                    $.post("sendMessage.php", {id: otherId, isgroupchat: isGroupChat, content: content, contenttype: "text"}, function(data){
+                      $("#inputText").html("");
+                      $("#messageboard").html($("#messageboard").html() + data);
+                      document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight;
+                    });
                   }
+                }
+
+                var blockLoadMore = false;
+                window.onload = loadMessages(true);
+                function loadMessages(newload){
+                  if (newload) {
+                    var sendData = "id=" + otherId + "&isgroupchat=" + isGroupChat + "&loadnew=" + "true";
+                    document.getElementById("messageboard").innerHTML = "";
+                  }
+                  else{
+                    var sendData = "id=" + otherId + "&isgroupchat=" + isGroupChat;
+                  }
+                  var xmlhttp = new XMLHttpRequest();
+                  xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                      if (this.responseText != "") {
+                        var oldScrollHeight = document.getElementById("messageboard").scrollHeight;
+                        var oldScrollTop = document.getElementById("messageboard").scrollTop;
+
+                        document.getElementById("messageboard").innerHTML = this.responseText + document.getElementById("messageboard").innerHTML;
+                        
+                        if (newload) {
+                          document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight;
+                          
+
+                        }
+                        else{
+                          document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight - (oldScrollHeight - oldScrollTop);
+                        }
+                      }
+                    }
+                  };
+                  if (newload) {blockLoadMore = true;}
+                  xmlhttp.open("GET", "loadMessages.php?" + sendData, true);
+                  xmlhttp.send(sendData);
+                }
+                
+                function checkToLoadMoreMessges(){
+                  if (document.getElementById("messageboard").scrollTop < 200 && document.getElementById("messageboard").scrollHeight > 100 && !blockLoadMore) {
+                    loadMessages(false);
+                  }
+                  if (blockLoadMore == true) {blockLoadMore=false;}
                 };
-                xmlhttp.open("GET", "loadChatList.php?" + sendData, true);
-                xmlhttp.send(sendData);
-                chatListUpdateTimeout = setTimeout(loadChatList, 2000);
-              }
-            </script>
+                loadNewMessages();
+                function loadNewMessages(){
+                  var sendData = "id=" + otherId + "&isgroupchat=" + isGroupChat;
+                  var xmlhttp = new XMLHttpRequest();
+                  xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                      document.getElementById("messageboard").innerHTML = document.getElementById("messageboard").innerHTML + this.responseText;
+                      if (this.responseText != "") {
+                        document.getElementById("messageboard").scrollTop = document.getElementById("messageboard").scrollHeight;
+                      }
+                      
+                    }
+                  };
+                  xmlhttp.open("GET", "loadNewMessages.php?" + sendData, true);
+                  xmlhttp.send(sendData);
+                  messageUpdateTimeout = setTimeout(loadNewMessages, 1000);
+                }
+
+                var chatListLoadAmount = 12;
+                window.load = loadChatList();
+                function loadChatList(){
+                  var sendData = "limit=" + chatListLoadAmount;
+                  var xmlhttp = new XMLHttpRequest();
+                  xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                      if (document.getElementById("friendslist").innerHTML != this.responseText) {}
+                      document.getElementById("friendslist").innerHTML = this.responseText;
+                    }
+                  };
+                  xmlhttp.open("GET", "loadChatList.php?" + sendData, true);
+                  xmlhttp.send(sendData);
+                  chatListUpdateTimeout = setTimeout(loadChatList, 2000);
+                }
+              </script>
+          </div>
         </div>
     </body>
 </html>
