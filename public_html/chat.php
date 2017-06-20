@@ -25,6 +25,7 @@ include('php_includes/header.php');
           }
           div.wrapper{
             width: 1282px;
+            margin: auto;
           }
           div.menubar{
             width: 20%;
@@ -257,7 +258,7 @@ include('php_includes/header.php');
             margin-top: 0.5%;
             margin-bottom: 0.5%;
             height: 90%;
-            width: 83%;
+            width: calc(83% + 7%); /*plus 7 % becouse the attach function is not yet implemented*/
             resize: none;
             border:0;
             float: left;
