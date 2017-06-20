@@ -3,7 +3,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
-      <title>Project Team-Up | Contact</title>
+      <title>Project Team-Up | Production Blog</title>
 		<style type="text/css">
 		body{
 			margin: 0;
@@ -14,7 +14,7 @@
 			margin: auto;
 			background-color: #ecf0f1;
 		}
-		div.contact{
+		div.productionblog{
 			width: 80%;
 			margin:auto;
 		}
@@ -32,8 +32,8 @@
       	<?php
         include("_header.php");
         ?>
-		<div class="contact">
-			<h1>Contact</h1>
+		<div class="productionblog">
+			<h1>Production Blog</h1>
 			<p></p>
 		</div>
 		<?php
