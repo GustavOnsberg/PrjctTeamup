@@ -3,7 +3,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
-      <title>Project Team-Up | Contact</title>
+      	<title>Project Team-Up | Contact</title>
 		<style type="text/css">
 		body{
 			margin: 0;

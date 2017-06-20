@@ -6,7 +6,7 @@ include('php_includes/header.php');
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Main page - Project Team-Up</title>
+        <title>Project Team-Up | Chat</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400" rel="stylesheet">
@@ -22,6 +22,9 @@ include('php_includes/header.php');
             margin: auto;
             background-color: #ecf0f1;
             overflow:hidden; /*to remove the slidebar from the screen*/
+          }
+          div.wrapper{
+            width: 1080px;
           }
           div.menubar{
             width: 20%;
